@@ -1,0 +1,80 @@
+{
+  "name": "xatto-adminlte-starter-kit",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel -p 60080 ./app/_entries/development/index.html",
+    "dev:clean": "rm -rf .cache dist && yarn dev",
+    "dev:build": "parcel build ./app/_entries/development/index.html",
+    "production:build": "parcel build ./app/_entries/production/index.html",
+    "prettier": "prettier",
+    "test": "jest --coverage --no-cache",
+    "tslint": "tslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyukyuInteractive/xatto-AdminLTE-starter-kit.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyukyuInteractive/xatto-AdminLTE-starter-kit/issues"
+  },
+  "homepage": "https://github.com/RyukyuInteractive/xatto-AdminLTE-starter-kit#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "lint-staged": {
+    "subTaskConcurrency": 1,
+    "linters": {
+      "src/**/*.{ts,tsx}": [
+        "prettier --write",
+        "tslint --fix --project tsconfig.json",
+        "git add"
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "jsxBracketSameLine": true
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^23.2.0",
+    "lint-staged": "^7.0.0",
+    "nib": "^1.1.2",
+    "parcel-bundler": "^1.7.0",
+    "power-assert": "^1.6.0",
+    "prettier": "^1.11.1",
+    "stylus": "^0.54.5",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "admin-lte": "^2.4.3",
+    "babel-polyfill": "^6.26.0",
+    "xatto": "^0.1.13",
+    "xatto-admin-lte": "https://github.com/RyukyuInteractive/xatto-AdminLTE.git",
+    "xatto-route": "^0.0.1",
+    "xatto-some": "^0.0.2"
+  }
+}
